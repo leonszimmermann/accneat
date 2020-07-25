@@ -30,12 +30,13 @@ InnovNodeGene::InnovNodeGene (const char *argline) {
     ss >> node_id >> trait_id >> nodety >> nodepl;
     type = (nodetype)nodety;
 
-    if(trait_id == 0)
-        trait_id = 1;
+    // Get the Sensor Identifier and Parameter String
+    // mySensor = SensorRegistry::getSensor(id, param);
+    frozen=false;  //TODO: Maybe change
 
-	// Get the Sensor Identifier and Parameter String
-	// mySensor = SensorRegistry::getSensor(id, param);
-	frozen=false;  //TODO: Maybe change
+    if (trait_id == 0) {
+      trait_id = 1;
+    }
 }
 
 InnovNodeGene::~InnovNodeGene() {

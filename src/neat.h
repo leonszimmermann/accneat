@@ -16,6 +16,7 @@
 #ifndef _NERO_NEAT_H_
 #define _NERO_NEAT_H_
 
+#include "cmath"
 #include "neattypes.h"
 
 namespace NEAT {

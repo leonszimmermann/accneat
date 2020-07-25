@@ -1,5 +1,7 @@
 #pragma once
 
+#include "random"
+#include "limits.h"
 #include "neat.h"
 
 namespace NEAT {

@@ -13,12 +13,16 @@
   See the License for the specific language governing permissions and
   limitations under the License.
 */
-#include "std.h" // Must be included first. Precompiled header with standard library includes.
-#include <unistd.h>
-#include "experiment.h"
-#include "neat.h"
+#include <iostream>
+#include <map>
+#include <string>
+#include <memory>
+#include <vector>
+#include "unistd.h"
 #include "rng.h"
-#include "util.h"
+#include "neat.h"
+#include "experiments/experiment.h"
+#include "util/util.h"
 
 using namespace NEAT;
 using namespace std;
