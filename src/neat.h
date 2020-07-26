@@ -18,6 +18,7 @@
 
 #include "cmath"
 #include "neattypes.h"
+#include <vector>
 
 namespace NEAT {
 
