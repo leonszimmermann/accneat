@@ -1,4 +1,8 @@
 #include <iostream>
+#include <map>
+#include <string>
+#include <memory>
+#include <vector>
 #include "accneat.h"
 #include "rng.h"
 #include "experiments/experiment.h"
@@ -7,7 +11,7 @@
 using namespace NEAT;
 using namespace std;
 
-bool accneat(bool force_delete, int num_runs, int rng_seed, int pop_size, int maxgens, GeneticSearchType search_type, const char* experiment_name) {
+bool accneat(int num_runs, int pop_size, NEAT::GeneticSearchType search_type, const char* experiment_name, int rng_seed, int maxgens, bool force_delete) {
     env->num_runs = num_runs;
     env->pop_size = pop_size;
 

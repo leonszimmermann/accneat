@@ -7,7 +7,7 @@ using namespace std;
 int main(int argc, char *argv[]) {
 
     //Usage Example
-    if(!accneat(false, 10, DEFAULT_RNG_SEED, 5000, DEFAULT_MAX_GENS, GeneticSearchType::COMPLEXIFY, "xor")) {
+    if(!accneat(10, 5000, GeneticSearchType::COMPLEXIFY, "xor", DEFAULT_RNG_SEED, DEFAULT_MAX_GENS, true)) {
         cerr << "Something went wrong..." << endl;
     }
 

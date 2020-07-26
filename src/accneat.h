@@ -16,14 +16,10 @@
 
 #pragma once
 
-#include <map>
-#include <string>
-#include <memory>
-#include <vector>
 #include "unistd.h"
 #include "neat.h"
 
 #define DEFAULT_RNG_SEED 1
 #define DEFAULT_MAX_GENS 10000
 
-bool accneat(bool force_delete, int num_runs, int rng_seed, int pop_size, int maxgens, NEAT::GeneticSearchType search_type, const char* experiment_name);
+bool accneat(int num_runs, int pop_size, NEAT::GeneticSearchType search_type, const char* experiment_name, int rng_seed = DEFAULT_RNG_SEED, int maxgens = DEFAULT_MAX_GENS, bool force_delete = false);
