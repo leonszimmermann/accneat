@@ -1,5 +1,5 @@
 cat > Makefile.conf <<EOF
-ENABLE_CUDA=false
+ENABLE_CUDA=true
 DEVMODE=false
 
 PFM_LD_FLAGS=
