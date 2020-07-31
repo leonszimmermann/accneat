@@ -24,6 +24,6 @@
 #define DEFAULT_RNG_SEED 1
 #define DEFAULT_MAX_GENS 10000
 
-static std::vector<NEAT::Test> tests;
+//static std::vector<NEAT::Test> tests;
 
 bool accneat(int num_runs, int pop_size, NEAT::GeneticSearchType search_type, const char* experiment_name, int rng_seed = DEFAULT_RNG_SEED, int maxgens = DEFAULT_MAX_GENS, bool force_delete = false);

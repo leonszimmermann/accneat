@@ -1,35 +1,56 @@
 #include <iostream>
 #include "accneat.h"
+#include "main.h"
+#include <fstream> // std::ifstream
+#include <vector>
 
 using namespace NEAT;
 using namespace std;
 
+//helper
+vector<string> split (string s, string delimiter) {
+    size_t pos_start = 0, pos_end, delim_len = delimiter.length();
+    string token;
+    vector<string> res;
+
+    while ((pos_end = s.find (delimiter, pos_start)) != string::npos) {
+        token = s.substr (pos_start, pos_end - pos_start);
+        pos_start = pos_end + delim_len;
+        res.push_back (token);
+    }
+
+    res.push_back (s.substr (pos_start));
+    return res;
+}
+
+std::vector<NEAT::Test> GetDataFromCSV(std::string filename) {
+        std::vector<Step> result;
+        std::ifstream csv(filename);
+        
+        if(!csv.is_open()) throw runtime_error("Could not open file");
+        
+        string line, val;
+        while(getline(csv, line))
+        {
+                vector<string> data = split(line, ",");
+
+                vector<real_t> in = {{stof(data[0]), stof(data[1])}};
+                vector<real_t> out = {stof(data[2])};
+                Step step(in, out, 1.0f); //extract weight if needed
+
+                result.push_back(step); 
+        }
+        
+        csv.close();
+
+        return {result};
+}
+
 int main(int argc, char *argv[]) {
-
-    //Usage Example
-    const real_t T = 1.0;
-    const real_t F = 0.0;
-    const real_t weight = 1.0;
-    
-    tests = {
-        {{
-                {{F, F}, {F}, weight},
-        }},
-        {{
-                {{F, T}, {T}, weight},
-        }},
-        {{
-                {{T, F}, {T}, weight},
-        }},
-        {{
-                {{T, T}, {F}, weight}
-        }}
-    };
-
+        
     if(!accneat(10, 5000, GeneticSearchType::COMPLEXIFY, "xor", DEFAULT_RNG_SEED, DEFAULT_MAX_GENS, true)) {
         cerr << "Something went wrong..." << endl;
     }
 
     return(0);
 }
-
